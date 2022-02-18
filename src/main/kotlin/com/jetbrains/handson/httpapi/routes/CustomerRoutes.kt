@@ -1,4 +1,4 @@
-package com.jetbrains.handson.httpapi.model.routes
+package com.jetbrains.handson.httpapi.routes
 
 import io.ktor.routing.*
 
