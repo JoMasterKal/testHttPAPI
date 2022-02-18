@@ -15,4 +15,6 @@ fun Application.module() {
     install(ContentNegotiation) {
         json()
     }
+
+    registerCustomerRoutes()
 }
