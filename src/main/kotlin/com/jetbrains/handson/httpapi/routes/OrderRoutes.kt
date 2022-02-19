@@ -4,6 +4,10 @@ import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.response.*
 import io.ktor.routing.*
+import com.jetbrains.handson.httpapi.model.orderStorage
+import com.jetbrains.handson.httpapi.model.Order
+import com.jetbrains.handson.httpapi.model.OrderItem
+
 
 fun Route.listOrdersRoute() {
     get("/order") {
@@ -33,6 +37,14 @@ fun Route.totalizeOrderRoute() {
         )
         val total = order.contents.map { it.price * it.amount }.sum()
         call.respond(total)
+    }
+}
+
+fun Application.registerOrderRoutes() {
+    routing {
+        listOrdersRoute()
+        getOrderRoute()
+        totalizeOrderRoute()
     }
 }
 
