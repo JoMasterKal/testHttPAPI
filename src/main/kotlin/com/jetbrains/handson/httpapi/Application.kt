@@ -4,6 +4,7 @@ package com.jetbrains.handson.httpapi
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.serialization.*
+import com.jetbrains.handson.httpapi.routes.registerCustomerRoutes
 
 
 
