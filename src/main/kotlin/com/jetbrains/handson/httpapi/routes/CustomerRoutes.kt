@@ -1,11 +1,22 @@
 package com.jetbrains.handson.httpapi.routes
 
+import com.jetbrains.handson.httpapi.model.customerStorage
+import com.jetbrains.handson.httpapi.model.Customer
+import io.ktor.http.*
 import io.ktor.routing.*
+import io.ktor.application.*
+import io.ktor.http.*
+import io.ktor.request.*
+import io.ktor.response.*
 
 fun Route.customerRouting() {
     route("/customer") {
         get {
-
+            if (customerStorage.isNotEmpty()) {
+                call.respond(customerStorage)
+            } else {
+                call.respondText("No customers found", status = HttpStatusCode.NotFound)
+            }
         }
         get("{id}") {
             val id = call.parameters["id"] ?: return@get call.respondText(
