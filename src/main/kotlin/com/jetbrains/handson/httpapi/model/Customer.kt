@@ -10,13 +10,7 @@ import io.ktor.response.*
 
 
 val customerStorage = mutableListOf<Customer>()
-        get {
-            if (customerStorage.isNotEmpty()) {
-                call.respond(customerStorage)
-            } else {
-                call.respondText("No customers found", status = HttpStatusCode.NotFound)
-            }
-        }
+
 
 @Serializable
 data class Customer(val id: String, val firstName: String, val lastName: String, val email: String)
